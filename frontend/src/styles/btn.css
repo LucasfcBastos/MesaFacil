@@ -1,0 +1,10 @@
+button {
+    background-color: var(--ThemeAction);
+    border: 0em;
+    border-radius: 25em;
+    padding: 0em 5em;
+}
+
+button p {
+    color: var(--ThemeVine);
+}

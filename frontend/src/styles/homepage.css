@@ -1,0 +1,15 @@
+.start {
+    width: 100%;
+    height: 100dvh;
+    justify-items: center;
+    align-content: center;
+}
+
+.start .centralize {
+    text-align: center;
+    width: 80%;
+}
+
+.start .centralize h1 {
+    margin-bottom: 2em;
+}
