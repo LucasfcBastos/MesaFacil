@@ -1,4 +1,4 @@
-import Button from "../components/btn";
+import Button from "../components/btn/BtnNavigate";
 import NavBar from "../components/nav"
 import Footer from "../components/footer_notAuth"
 
@@ -13,7 +13,7 @@ function HomePage() {
                     <h1 className="textVine">
                         UMA PLATAFORMA COMPLETA DE RESERVAS DE MESAS QUE CONECTA RESTAURANTES E CLIENTES EM UM SÓ LUGAR.
                     </h1>
-                    <Button text={"Vamos Cadastrar"} />
+                    <Button text={"Vamos Cadastrar"} link="/register" />
                 </div>
             </div>
             <Footer />

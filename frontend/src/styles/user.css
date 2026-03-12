@@ -1,0 +1,27 @@
+div.dark {
+    background-color: rgba(0, 0, 0, 0.500);
+    width: calc(100% - 4em);
+    height: calc(100dvh - 4em);
+    position: fixed;
+    padding: 2em;
+    z-index: 2;
+    align-content: center;
+}
+
+.camp_forms {
+    background-color: var(--ThemeColor);
+    border-radius: 0.75em;
+    padding: 0.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.camp_forms h1{
+    margin: 0;
+}
+
+.camp_forms hr{
+    width: 100%;
+    height: 2px solid var(--ThemeVine);
+}

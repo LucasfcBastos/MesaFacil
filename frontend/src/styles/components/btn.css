@@ -1,0 +1,47 @@
+button#navigate {
+    background-color: var(--ThemeAction);
+    border: 0em;
+    border-radius: 25em;
+    padding: 0.5em 2.5em;
+}
+
+button#navigate p {
+    color: var(--ThemeVine);
+}
+
+button#cross {
+    background-color: rgba(0, 0, 0, 0.250);
+    border: 0em;
+    border-radius: 25em;
+    padding: 0.5em 0.75em;
+}
+
+button#cross p {
+    color: rgba(0, 0, 0, 0.750);
+}
+
+button#auth {
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+button#auth img {
+    background-color: var(--ThemeColor);
+    width: 2.5em;
+    height: 2.5em;
+}
+
+button#auth p {
+    margin: 0;
+    color: var(--ThemeColor);
+}
+
+button#auth.select img {
+    background-color: var(--ThemeAction);
+}
+
+button#auth.select p {
+    color: var(--ThemeAction);
+}

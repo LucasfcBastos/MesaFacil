@@ -1,8 +1,15 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\{
+    StateController,
+    ProfileController,
+    CitiesController,
+    UserController
+};
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:sanctum');
+Route::get('/states', [StateController::class, 'index']);
+Route::get('/cities/{state}', [CitiesController::class, 'byState']);
+Route::get('/profiles', [ProfileController::class, 'index']);
+Route::post('/register_authentic', [UserController::class, 'register']);
+Route::post('/login_authentic', [UserController::class, 'login']);

@@ -1,0 +1,48 @@
+.card_forms {
+    background-color: white;
+    border-radius: var(--px12);
+    min-width: 22.5em;
+    max-height: 95%;
+    padding: var(--px12);
+    display: flex;
+    flex-direction: column;
+    gap: var(--px24);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.card_forms .text div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card_forms hr {
+    height: 0.2em;
+    background-color: var(--ThemeVine);
+    border: 0em;
+    width: 100%;
+}
+
+.card_forms .btn {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--px24);
+    text-align: justify;
+}
+
+form .label_input label {
+    display: flex;
+    flex-direction: column;
+    gap: var(--px12);
+    font-family: 'Libre-Caslon-Text-Bold';
+}
+
+form .label_input input {
+    margin: 0em;
+    width: calc(100% - 1.1em);
+}

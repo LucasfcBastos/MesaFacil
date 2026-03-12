@@ -1,0 +1,10 @@
+.user_auth {
+    background-color: rgba(0, 0, 0, 0.500);
+    position: fixed;
+    z-index: 1;
+    width: calc(100% - 5em);
+    height: calc(100% - 5em);
+    padding: 2.5em;
+    align-content: center;
+    justify-items: center;
+}

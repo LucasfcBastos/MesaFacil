@@ -11,3 +11,9 @@ footer {
 footer#not {
     text-align: center;
 }
+
+footer#auth {
+    display: flex;
+    height: 5em;
+    justify-content: space-around;
+}

@@ -1,32 +1,58 @@
 @font-face {
-    font-family: "Libre-Caslon-Text-Regular";
-    src: url("./assets/fonts/LibreCaslonText-Regular.ttf") format("truetype");
+  font-family: "Libre-Caslon-Text-Regular";
+  src: url("./assets/fonts/LibreCaslonText-Regular.ttf") format("truetype");
 }
 
 @font-face {
-    font-family: "Libre-Caslon-Text-Bold";
-    src: url("./assets/fonts/LibreCaslonText-Bold.ttf") format("truetype");
+  font-family: "Libre-Caslon-Text-Bold";
+  src: url("./assets/fonts/LibreCaslonText-Bold.ttf") format("truetype");
 }
 
 :root {
-    --ThemeColor: #FFFFFF;
-    --ThemeVine: #66001B;
-    --ThemeAction: #DCB58C;
+  --px12: 0.75em;
+  --px24: 1.5em;
+
+  --ThemeColor: #FFFFFF;
+  --ThemeVine: #66001B;
+  --ThemeAction: #DCB58C;
+  --ThemeText: #000000;
 }
 
 body {
   margin: 0;
   font-family: 'Libre-Caslon-Text-Regular';
+  color: var(--ThemeText);
 }
 
 h1 {
   font-size: 1.5em;
   font-family: 'Libre-Caslon-Text-Bold';
+  margin: 0em;
 }
 
-p {
-  margin: 0.5em;
-  font-size: 1.25em;
+p,
+label {
+  font-size: 0.93em;
+}
+
+input {
+  font-size: 1em;
+  font-family: 'Libre-Caslon-Text-Regular';
+  border: 0.1em solid #000;
+  border-radius: 0.37em; 
+  padding: 0.25em 0.5em;
+  margin-left: -2%;
+  width: 99.5%;
+}
+
+select {
+  font-size: 1em;
+  font-family: 'Libre-Caslon-Text-Regular';
+  border: 0.1em solid #000;
+  border-radius: 0.37em; 
+  padding: 0.25em;
+  width: 100%;
+  background-color: white;
 }
 
 .textVine {
@@ -34,5 +60,11 @@ p {
 }
 
 button {
-  font-family: 'Libre-Caslon-Text-Regular';
+  font-family: 'Libre-Caslon-Text-Bold';
+  cursor: pointer;
+  font-size: 1.25em;
+}
+
+button p {
+  margin: 0;
 }
