@@ -23,7 +23,7 @@ class User extends Authenticatable
         'email',
         'number_contact',
         'cpf',
-        'id_city',
+        'id_cities',
         'id_profile',
         'password',
     ];

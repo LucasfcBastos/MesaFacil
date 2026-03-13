@@ -27,8 +27,8 @@ button#auth {
     cursor: pointer;
 }
 
-button#auth img {
-    background-color: var(--ThemeColor);
+button#auth .btn-img {
+    color: var(--ThemeColor);
     width: 2.5em;
     height: 2.5em;
 }
@@ -36,10 +36,6 @@ button#auth img {
 button#auth p {
     margin: 0;
     color: var(--ThemeColor);
-}
-
-button#auth.select img {
-    background-color: var(--ThemeAction);
 }
 
 button#auth.select p {

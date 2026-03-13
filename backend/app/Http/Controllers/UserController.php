@@ -18,7 +18,7 @@ class UserController extends Controller
             'number_contact' => 'required',
             'cpf' => 'required|unique:users',
             'password' => 'required|min:6',
-            'id_city' => 'required',
+            'id_cities' => 'required',
             'id_profile' => 'required'
         ]);
 
@@ -28,7 +28,7 @@ class UserController extends Controller
             'number_contact' => $request->number_contact,
             'cpf' => $request->cpf,
             'password' => Hash::make($request->password),
-            'id_city' => $request->id_city,
+            'id_cities' => $request->id_cities,
             'id_profile' => $request->id_profile
         ]);
 

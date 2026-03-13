@@ -9,13 +9,13 @@ function UserMy() {
 
     const api = [
         {
-            name: "Buscar",
+            name: "Deshbord",
             link: "/client/restaurante",
             type: "",
             img: logo
         },
         {
-            name: "Reservas",
+            name: "Deshbord",
             link: "/client/restaurante",
             type: "",
             img: logo
@@ -44,7 +44,7 @@ function UserMy() {
         <>
             <NavBar />
             <div className="start">
-                <h1>Bem vindo {user?.name || "Consumidor"}</h1>
+                <h1>Bem vindo {user?.name || "Restaurante"}</h1>
                 <button style={{ width: "15em" }} onClick={handleLogout}>
                 Sair
                 </button>

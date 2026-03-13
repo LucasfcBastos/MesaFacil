@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 
 import '../../styles/components/btn.css'
 
-function BtnImgNavigate({ text, link, style, img}) {
+function BtnImgNavigate({ text, link, style, img: Img}) {
 
     const navigate = useNavigate();
 
@@ -13,7 +13,7 @@ function BtnImgNavigate({ text, link, style, img}) {
     return (
         <>
             <button id='auth' className={`${style}`} onClick={redirect}>
-                <img src={img} />
+                {Img && <Img className='btn-img' />}
                 <p>{text}</p>
             </button>
         </>

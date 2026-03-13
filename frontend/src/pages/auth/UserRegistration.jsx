@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom"
 import { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { IMaskInput } from "react-imask"
@@ -8,6 +9,8 @@ import Cross from "../../components/btn/BtnCross";
 import NavBar from "../../components/nav"
 
 function UserRegistration() {
+
+    const navigate = useNavigate()
 
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
@@ -61,18 +64,25 @@ function UserRegistration() {
                 number_contact,
                 cpf,
                 password,
-                id_city: selectedCity,
+                id_cities: selectedCity,
                 id_profile: selectedProfile
             })
        
-            await api.post("/login_authentic",{
+            const loginResponse = await api.post("/login_authentic",{
                 email,
                 password
             })
 
+            localStorage.setItem("token", loginResponse.data.token)
+            localStorage.setItem("user", JSON.stringify(loginResponse.data.user))
+
             alert("Usuário criado")
         
-            window.location.href = "/login"
+            if (Number(selectedProfile) === 1) {
+                navigate("/client/my")
+            } else {
+                navigate("/restaurante/my")
+            }
         
         } catch (err) {
 
@@ -170,7 +180,9 @@ function UserRegistration() {
                             </label>
                         </div>
                         <div className="btn">
-                            <Button type="submit" text={"Vamos Cadastrar"} />
+                            <button id='navigate' type="submit">
+                                <p>Vamos Cadastrar</p>
+                            </button>
                         </div>
                     </form>
                 </div>
