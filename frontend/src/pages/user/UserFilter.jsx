@@ -1,17 +1,16 @@
-import { useNavigate } from "react-router-dom"
 import NavBar from "../../components/nav"
 import Footer from "../../components/footer/footer_Auth"
 import logo from "../../assets/svg/user.svg?react"
 
 import '../../styles/homepage.css'
 
-function UserMy() {
+function UserFilter() {
 
     const api = [
         {
             name: "Buscar",
             link: "/client/list/restaurates",
-            type: "",
+            type: "select",
             img: logo
         },
         {
@@ -23,35 +22,19 @@ function UserMy() {
         {
             name: "Perfil",
             link: "/client/my",
-            type: "select",
+            type: "",
             img: logo
         }
     ]
-
-    const navigate = useNavigate()
-
-    const user = JSON.parse(localStorage.getItem("user"))
-
-    const handleLogout = () => {
-
-        localStorage.removeItem("token")
-        localStorage.removeItem("user")
-
-        navigate("/")
-    }
 
     return (
         <>
             <NavBar />
             <div className="start">
-                <h1>Bem vindo {user?.name || "Consumidor"}</h1>
-                <button style={{ width: "15em" }} onClick={handleLogout}>
-                Sair
-                </button>
             </div>
             <Footer list={api} />
         </>
     );
 }
 
-export default UserMy;
+export default UserFilter;

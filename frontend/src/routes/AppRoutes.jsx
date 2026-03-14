@@ -4,6 +4,8 @@ import HomePage from "../pages/HomePage";
 import UserRegistration from "../pages/auth/UserRegistration.jsx";
 import UserLogin from "../pages/auth/UserLogin.jsx";
 import UserConsumerMy from "../pages/user/UserMy.jsx";
+import UserConsumerFilter from "../pages/user/UserFilter.jsx";
+import UserConsumerReserva from "../pages/user/UserReserva.jsx";
 import UserRestaurantMy from "../pages/restaurant/UserMy.jsx";
 import NotFound from "../pages/NotFound.jsx"
 
@@ -20,6 +22,22 @@ export function AppRoutes() {
           element={
             <ProtectedRoute profile={1}>
               <UserConsumerMy />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/client/list/restaurates"
+          element={
+            <ProtectedRoute profile={1}>
+              <UserConsumerFilter />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/client/list/reservas"
+          element={
+            <ProtectedRoute profile={1}>
+              <UserConsumerReserva />
             </ProtectedRoute>
           }
         />

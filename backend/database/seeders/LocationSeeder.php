@@ -25,12 +25,18 @@ class LocationSeeder extends Seeder
             )->json();
 
             foreach ($cities as $city) {
-                DB::table('cities')->insert([
+               $new_city_id =  DB::table('cities')->insertGetId([
                     'name' => $city['nome'],
                     'id_state' => $new_state_id,
                     'created_at' => now(),
                     'updated_at' => now()
                 ]);
+
+                if ($city['nome'] === 'Anápolis') {
+                    print("\nAnápolis ID: " . $new_city_id);
+                } elseif ($city['nome'] === 'São Francisco de Goiás') {
+                    print("\nSão Francisco de Goiás ID: " . $new_city_id);
+                }
             }
         }
     }

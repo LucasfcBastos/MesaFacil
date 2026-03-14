@@ -3,8 +3,9 @@
 namespace Database\Seeders;
 
 use Database\Seeders\{
-    ProfileSeeder,
-    LocationSeeder
+    StandardSeeder,
+    LocationSeeder,
+    TemplateSeeder
 };
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,8 +17,9 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            ProfileSeeder::class,
+            StandardSeeder::class,
             LocationSeeder::class,
+            TemplateSeeder::class
         ]);
     }
 }

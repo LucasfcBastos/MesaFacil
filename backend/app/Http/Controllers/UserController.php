@@ -32,6 +32,8 @@ class UserController extends Controller
             'id_profile' => $request->id_profile
         ]);
 
+        print($user);
+
         return response()->json([
             'message' => 'Usuário criado com sucesso',
             'user' => $user

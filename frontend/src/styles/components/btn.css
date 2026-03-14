@@ -25,6 +25,7 @@ button#auth {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    width: 6em;
 }
 
 button#auth .btn-img {

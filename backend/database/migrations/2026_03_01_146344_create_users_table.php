@@ -16,15 +16,15 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('number_contact');
-            $table->string('cpf')->unique();
-            $table->unsignedBigInteger('id_cities');
-            $table->unsignedBigInteger('id_profile');
+            $table->string('phone_number')->unique();
+            $table->string('social_security_number')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->unsignedBigInteger('id_city');
+            $table->unsignedBigInteger('id_profile');
             $table->timestamps();
 
-            $table->foreign('id_cities')->references('id')->on('cities');
+            $table->foreign('id_city')->references('id')->on('cities');
             $table->foreign('id_profile')->references('id')->on('profiles');
         });
 
