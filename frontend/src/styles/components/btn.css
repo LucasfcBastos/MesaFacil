@@ -26,19 +26,19 @@ button#auth {
     border: none;
     cursor: pointer;
     width: 6em;
+    color: var(--ThemeColor);
 }
 
 button#auth .btn-img {
-    color: var(--ThemeColor);
     width: 2.5em;
     height: 2.5em;
 }
 
 button#auth p {
     margin: 0;
-    color: var(--ThemeColor);
 }
 
+button#auth.select .btn-img,
 button#auth.select p {
     color: var(--ThemeAction);
 }

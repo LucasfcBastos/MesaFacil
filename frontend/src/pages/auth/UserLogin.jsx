@@ -36,7 +36,7 @@ function UserLogin() {
             if (user.id_profile === 1) {
                 navigate("/client/my")
             } else {
-                navigate("/restaurante/my")
+                navigate("/restaurante/perfil")
             }
 
         } catch (err) {

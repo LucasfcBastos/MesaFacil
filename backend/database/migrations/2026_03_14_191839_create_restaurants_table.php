@@ -13,15 +13,13 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string('logo');
-            $table->string('restaurant_name');
-            $table->mediumText('description');
+            $table->string('logo')->nullable();
+            $table->string('restaurant_name')->nullable();
+            $table->mediumText('description')->nullable();
             $table->unsignedBigInteger('id_user');
-            $table->unsignedBigInteger('id_city');
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_city')->references('id')->on('cities');
         });
     }
 

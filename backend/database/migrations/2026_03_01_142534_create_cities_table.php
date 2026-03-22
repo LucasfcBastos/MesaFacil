@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('cities', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('immediate_region')->nullable();
             $table->unsignedBigInteger('id_state');
             $table->timestamps();
             $table->foreign('id_state')->references('id')->on('states');

@@ -4,7 +4,6 @@ import { api } from "../../services/api";
 import { IMaskInput } from "react-imask"
 import "../../styles/components/Forms.css";
 import "../../styles/pages/AuthUser.css";
-import Button from "../../components/btn/BtnNavigate";
 import Cross from "../../components/btn/BtnCross";
 import NavBar from "../../components/nav"
 
@@ -14,8 +13,8 @@ function UserRegistration() {
 
     const [name,setName] = useState("")
     const [email,setEmail] = useState("")
-    const [number_contact,setPhone] = useState("")
-    const [cpf,setCPF] = useState("")
+    const [phone_number,setPhone] = useState("")
+    const [social_security_number,setCPF] = useState("")
     const [password,setPassword] = useState("")
     const [selectedState, setSelectedState] = useState("")
     const [selectedCity, setSelectedCity] = useState("")
@@ -57,14 +56,16 @@ function UserRegistration() {
         e.preventDefault()
 
         try {
+
+            const cleanCPF = social_security_number.replace(/\D/g, "")
         
             await api.post("/register_authentic",{
                 name,
                 email,
-                number_contact,
-                cpf,
+                phone_number,
+                social_security_number: cleanCPF,
                 password,
-                id_cities: selectedCity,
+                id_city: selectedCity,
                 id_profile: selectedProfile
             })
        
@@ -81,7 +82,10 @@ function UserRegistration() {
             if (Number(selectedProfile) === 1) {
                 navigate("/client/my")
             } else {
-                navigate("/restaurante/my")
+                const userLogged = loginResponse.data.user
+
+                const restaurantResponse = await api.post(`/register/${userLogged.id}`)
+                navigate("/restaurante/perfil")
             }
         
         } catch (err) {
@@ -122,13 +126,13 @@ function UserRegistration() {
                         <div className="label_input">
                             <label>
                                 Seu celular *
-                                <IMaskInput mask="(00) 00000-0000" value={number_contact} required placeholder="(00) 00000-0000" onAccept={(value) => setPhone(value)} />
+                                <IMaskInput mask="(00) 00000-0000" value={phone_number} required placeholder="(00) 00000-0000" onAccept={(value) => setPhone(value)} />
                             </label>
                         </div>
                         <div className="label_input">
                             <label>
                                 Seu CPF *
-                                <IMaskInput mask="000.000.000-00" value={cpf} required placeholder="000.000.000-00" onAccept={(value) => setCPF(value)} />
+                                <IMaskInput mask="000.000.000-00" value={social_security_number} required placeholder="000.000.000-00" onAccept={(value) => setCPF(value)} />
                             </label>
                         </div>
                         <div className="label_input">

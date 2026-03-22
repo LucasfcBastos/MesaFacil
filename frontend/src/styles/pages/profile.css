@@ -1,0 +1,24 @@
+.section.profile .info_user {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.78em;
+}
+
+.section.profile .info_user .info_img {
+    width: 10em;
+    height: 10em;
+    color: violet;
+    background-color: yellowgreen;
+    border-radius: 50%;
+}
+
+.section.profile .info_user .label_input {
+    width: 100%;
+}
+
+.section.profile .info_user .label_input input,
+.section.profile .info_user .label_input textarea {
+    width: 96%;
+    margin-left: 0em;
+}

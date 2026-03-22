@@ -1,0 +1,14 @@
+.section {
+    margin-top: 4.25em;
+    width: calc(100% - 1.56em);
+    min-height: calc(100dvh - 11.81em);
+    padding: 0.78em;
+    gap: 0.78em;
+    display: flex;
+    flex-direction: column;
+}
+
+.section hr {
+    margin: 0em;
+    border-top: 0.25em solid var(--ThemeVine);
+}

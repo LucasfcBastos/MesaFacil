@@ -15,24 +15,22 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users',
-            'number_contact' => 'required',
-            'cpf' => 'required|unique:users',
+            'phone_number' => 'required',
+            'social_security_number' => 'required|unique:users',
             'password' => 'required|min:6',
-            'id_cities' => 'required',
+            'id_city' => 'required',
             'id_profile' => 'required'
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'number_contact' => $request->number_contact,
-            'cpf' => $request->cpf,
+            'phone_number' => $request->phone_number,
+            'social_security_number' => $request->social_security_number,
             'password' => Hash::make($request->password),
-            'id_cities' => $request->id_cities,
+            'id_city' => $request->id_city,
             'id_profile' => $request->id_profile
         ]);
-
-        print($user);
 
         return response()->json([
             'message' => 'Usuário criado com sucesso',

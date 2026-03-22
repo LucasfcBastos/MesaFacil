@@ -35,7 +35,8 @@ label {
   font-size: 0.93em;
 }
 
-input {
+input,
+textarea {
   font-size: 1em;
   font-family: 'Libre-Caslon-Text-Regular';
   border: 0.1em solid #000;
@@ -43,6 +44,10 @@ input {
   padding: 0.25em 0.5em;
   margin-left: -2%;
   width: 99.5%;
+}
+
+textarea {
+  min-height: 5em;
 }
 
 select {

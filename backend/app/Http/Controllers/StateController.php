@@ -12,4 +12,11 @@ class StateController extends Controller
 
         return response()->json($states);
     }
+
+    public function whereStates($state_id)
+    {
+        $cities = State::find($state_id);
+
+        return response()->json($cities);
+    }
 }
