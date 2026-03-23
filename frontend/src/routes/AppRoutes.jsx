@@ -12,6 +12,7 @@ import UserConsumerReserva from "../pages/user/UserReserva.jsx";
 import UserRestaurantPerfil from "../pages/restaurant/UserMy.jsx";
 import UserRestaurantReserva from "../pages/restaurant/UserReserva.jsx";
 import UserRestaurantMesa from "../pages/restaurant/UserMesa.jsx";
+import UserEditRestaurant from "../pages/restaurant/EditRestaurant.jsx";
 
 import NotFound from "../pages/NotFound.jsx"
 
@@ -47,6 +48,10 @@ export function AppRoutes() {
         <Route path="/restaurante/mesas"
         element={<ProtectedRoute profile={2}>
           <UserRestaurantMesa />
+        </ProtectedRoute>}/>
+        <Route path="/editar/restaurante"
+        element={<ProtectedRoute profile={2}>
+          <UserEditRestaurant />
         </ProtectedRoute>}/>
 
         <Route path="*" element={<NotFound />} />

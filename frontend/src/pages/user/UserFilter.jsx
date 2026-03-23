@@ -1,29 +1,32 @@
 import NavBar from "../../components/nav"
 import Footer from "../../components/footer/footer_Auth"
-import logo from "../../assets/svg/user.svg?react"
+
+import icon_user from "../../assets/svg/user.svg?react"
+import icon_mesa from "../../assets/svg/mesa.svg?react"
+import icon_reserva from "../../assets/svg/reserva.svg?react"
 
 import '../../styles/homepage.css'
 
 function UserFilter() {
 
-    const api = [
+    const menuItems = [
         {
             name: "Buscar",
-            link: "/client/list/restaurates",
-            type: "select",
-            img: logo
+            link: "/restaurante/mesas",
+            type: "",
+            img: icon_mesa
         },
         {
-            name: "Reservas",
-            link: "/client/list/reservas",
+            name: "Rerservas",
+            link: "/restaurante/reservas",
             type: "",
-            img: logo
+            img: icon_reserva
         },
         {
             name: "Perfil",
-            link: "/client/my",
-            type: "",
-            img: logo
+            link: "/restaurante/perfil",
+            type: "select",
+            img: icon_user
         }
     ]
 
@@ -32,7 +35,7 @@ function UserFilter() {
             <NavBar />
             <div className="start">
             </div>
-            <Footer list={api} />
+            <Footer list={menuItems} />
         </>
     );
 }

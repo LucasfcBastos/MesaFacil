@@ -46,3 +46,8 @@ form .label_input input {
     margin: 0em;
     width: calc(100% - 1.1em);
 }
+
+form .label_input textarea {
+    margin: 0em;
+    width: calc(100% - 1.1em);
+}

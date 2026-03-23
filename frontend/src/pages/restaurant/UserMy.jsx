@@ -1,17 +1,21 @@
-import { useNavigate } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { api } from "../../services/api";
-import NavBar from "../../components/nav"
-import Footer from "../../components/footer/footer_Auth"
+import NavBar from "../../components/nav";
+import Footer from "../../components/footer/footer_Auth";
+import Button from "../../components/btn/BtnNavigate";
 
-import icon_user from "../../assets/svg/user.svg?react"
-import icon_mesa from "../../assets/svg/mesa.svg?react"
+import icon_user from "../../assets/svg/user.svg?react";
+import icon_mesa from "../../assets/svg/mesa.svg?react";
+import icon_reserva from "../../assets/svg/reserva.svg?react";
+import Icon from "../../assets/svg/restaurante.svg?react";
 
-import '../../styles/pages/profile.css'
-import '../../styles/pages/section.css'
+import '../../styles/pages/profile.css';
+import '../../styles/pages/section.css';
 
 function UserMy() {
 
+    const [restaurant, setRestaurant] = useState([])
     const [city, setCity] = useState([])
     const [state, setState] = useState([])
 
@@ -26,7 +30,7 @@ function UserMy() {
             name: "Rerservas",
             link: "/restaurante/reservas",
             type: "",
-            img: icon_user
+            img: icon_reserva
         },
         {
             name: "Perfil",
@@ -47,6 +51,15 @@ function UserMy() {
 
         navigate("/")
     }
+
+    useEffect(() => {
+        const loadRestaurant = async () => {
+            const response = await api.get(`/exibir/${user.id}`)
+            setRestaurant(response.data)
+        }
+
+        loadRestaurant()
+    }, [])
 
     useEffect(() => {
         const loadCity = async () => {
@@ -83,20 +96,26 @@ function UserMy() {
                     </button>
                 </div>
                 <hr/>
-                <div className="info_user">
-                    <div className="info_img">
-                        <icon_mesa className='img-user' />
-                    </div>
+                <div className="data_user">
+                    {restaurant.logo_url ? (
+                        <div className="logo_card">
+                            <img src={restaurant.logo_url} alt="Logo do Restaurante" className="img-user" />
+                        </div>
+                    ) : (
+                        <div className="logo_card">
+                            <Icon className='img-user' />
+                        </div>
+                    )}
                     <div className="label_input">
                         <label>
                             Nome do Restaurante
-                            <input type="text" value="NULL" disabled />
+                            <input type="text" value={restaurant?.restaurant_name || "NULL"} disabled />
                         </label>
                     </div>
                     <div className="label_input">
                         <label>
                             Descrição
-                            <textarea type="text" value="NULL" disabled />
+                            <textarea type="text" value={restaurant?.description || "NULL"} disabled />
                         </label>
                     </div>
                     <div className="label_input">
@@ -111,9 +130,7 @@ function UserMy() {
                             <input type="text" value={state?.name || "NULL"} disabled />
                         </label>
                     </div>
-                    <button id='navigate' onClick={handleLogout}>
-                        Editar
-                    </button>
+                    <Button text={"Editar"} link="/editar/restaurante" />
                 </div>
 
             </div>

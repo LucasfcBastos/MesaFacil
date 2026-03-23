@@ -1,6 +1,9 @@
 import NavBar from "../../components/nav"
 import Footer from "../../components/footer/footer_Auth"
-import logo from "../../assets/svg/user.svg?react"
+
+import icon_user from "../../assets/svg/user.svg?react"
+import icon_mesa from "../../assets/svg/mesa.svg?react"
+import icon_reserva from "../../assets/svg/reserva.svg?react"
 
 import '../../styles/homepage.css'
 
@@ -33,24 +36,24 @@ function UserReserva() {
         }
     ]
     
-    const api = [
+    const menuItems = [
         {
             name: "Buscar",
-            link: "/client/list/restaurates",
+            link: "/restaurante/mesas",
             type: "",
-            img: logo
+            img: icon_mesa
         },
         {
-            name: "Reservas",
-            link: "/client/list/reservas",
-            type: "select",
-            img: logo
+            name: "Rerservas",
+            link: "/restaurante/reservas",
+            type: "",
+            img: icon_reserva
         },
         {
             name: "Perfil",
-            link: "/client/my",
-            type: "",
-            img: logo
+            link: "/restaurante/perfil",
+            type: "select",
+            img: icon_user
         }
     ]
     
@@ -64,7 +67,7 @@ function UserReserva() {
                     </div>
                 ))}
             </div>
-            <Footer list={api} />
+            <Footer list={menuItems} />
         </>
     );
 }

@@ -1,30 +1,33 @@
 import { useNavigate } from "react-router-dom"
 import NavBar from "../../components/nav"
 import Footer from "../../components/footer/footer_Auth"
-import logo from "../../assets/svg/user.svg?react"
+
+import icon_user from "../../assets/svg/user.svg?react"
+import icon_mesa from "../../assets/svg/mesa.svg?react"
+import icon_reserva from "../../assets/svg/reserva.svg?react"
 
 import '../../styles/homepage.css'
 
 function UserMy() {
 
-    const api = [
+    const menuItems = [
         {
             name: "Buscar",
-            link: "/client/list/restaurates",
+            link: "/restaurante/mesas",
             type: "",
-            img: logo
+            img: icon_mesa
         },
         {
-            name: "Reservas",
-            link: "/client/list/reservas",
+            name: "Rerservas",
+            link: "/restaurante/reservas",
             type: "",
-            img: logo
+            img: icon_reserva
         },
         {
             name: "Perfil",
-            link: "/client/my",
+            link: "/restaurante/perfil",
             type: "select",
-            img: logo
+            img: icon_user
         }
     ]
 
@@ -49,7 +52,7 @@ function UserMy() {
                 Sair
                 </button>
             </div>
-            <Footer list={api} />
+            <Footer list={menuItems} />
         </>
     );
 }

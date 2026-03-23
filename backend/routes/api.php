@@ -20,6 +20,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::prefix('restaurant')->group(function() {
         Route::post('/myProfile', [UserController::class, 'myRestaurant']);
     });
+    
+    Route::get('/exibir/{id}', [RestaurantController::class, 'view']);
+    Route::put('/atualizar/{id}', [RestaurantController::class, 'update']);
 
     Route::get('where/states/{id}', [StateController::class, 'whereStates']);
     Route::get('where/cities/{id}', [CitiesController::class, 'whereCities']);

@@ -1,24 +1,30 @@
-.section.profile .info_user {
+.section.profile .info_user,
+.section.profile .data_user {
     align-items: center;
     display: flex;
     flex-direction: column;
     gap: 0.78em;
 }
 
-.section.profile .info_user .info_img {
-    width: 10em;
-    height: 10em;
-    color: violet;
-    background-color: yellowgreen;
-    border-radius: 50%;
+.section.profile .data_user .logo_card {
+  width: 10em;
+  height: auto;
+  border-radius: 50%;
+  height: auto;
 }
 
-.section.profile .info_user .label_input {
+.section.profile .data_user .logo_card .img-user {
+  width: 100%;
+  height: 100%;
+  color: var(--ThemeVine);
+}
+
+.section.profile .data_user .label_input {
     width: 100%;
 }
 
-.section.profile .info_user .label_input input,
-.section.profile .info_user .label_input textarea {
+.section.profile .data_user .label_input input,
+.section.profile .data_user .label_input textarea {
     width: 96%;
     margin-left: 0em;
 }

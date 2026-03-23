@@ -6,14 +6,14 @@ import "../../styles/pages/AuthUser.css";
 import Cross from "../../components/btn/BtnCross";
 import NavBar from "../../components/nav"
 
-function UserLogin() {
+function EditRestaurant() {
 
     const navigate = useNavigate()
 
-    const [email,setEmail] = useState("")
-    const [password,setPassword] = useState("")
+    const [name,setName] = useState("")
+    const [description,setDescription] = useState("")
 
-    const handleRegister = async (e) => {
+    const handleUpdate = async (e) => {
 
         e.preventDefault()
 
@@ -55,27 +55,27 @@ function UserLogin() {
                 <div className="card_forms">
                     <div className="text">
                         <div>
-                            <h1 className="textVine">Faça seu Login</h1>
-                            <Cross link="/" />
+                            <h1 className="textVine">Editar Restaurante</h1>
+                            <Cross link="/restaurante/perfil" />
                         </div>
                         <hr/>
                     </div>
-                    <form onSubmit={handleRegister}>
+                    <form onSubmit={handleUpdate}>
                         <div className="label_input">
                             <label>
-                                Seu email *
-                                <input type="email" required placeholder="Digite seu email" onChange={e=>setEmail(e.target.value)} />
+                                Nome do Restaurante
+                                <input type="text" placeholder="Digite o nome do restaurante" onChange={e=>setName(e.target.value)} />
                             </label>
                         </div>
                         <div className="label_input">
                             <label>
-                                Sua Senha *
-                                <input type="password" required placeholder="Digite sua senha" onChange={e=>setPassword(e.target.value)} />
+                                Descrição
+                                <textarea placeholder="Digite a descrição do restaurante" onChange={e=>setDescription(e.target.value)} />
                             </label>
                         </div>
                         <div className="btn">
                             <button id='navigate' type="submit">
-                                <p>Faça Login</p>
+                                <p>Salvar</p>
                             </button>
                         </div>
                     </form>
@@ -87,4 +87,4 @@ function UserLogin() {
     );
 }
 
-export default UserLogin;
+export default EditRestaurant;

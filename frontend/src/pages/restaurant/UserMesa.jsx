@@ -4,13 +4,14 @@ import Footer from "../../components/footer/footer_Auth"
 
 import icon_user from "../../assets/svg/user.svg?react"
 import icon_mesa from "../../assets/svg/mesa.svg?react"
+import icon_reserva from "../../assets/svg/reserva.svg?react"
 
 import '../../styles/pages/profile.css'
 import '../../styles/pages/section.css'
 
 function UserMesa() {
 
-    const api = [
+    const menuItems = [
         {
             name: "Mesas",
             link: "/restaurante/mesas",
@@ -21,7 +22,7 @@ function UserMesa() {
             name: "Rerservas",
             link: "/restaurante/reservas",
             type: "",
-            img: icon_user
+            img: icon_reserva
         },
         {
             name: "Perfil",
@@ -41,7 +42,7 @@ function UserMesa() {
                     <h1>Bem vindo {user?.name || "Restaurante"}</h1>
                 </div>
             </div>
-            <Footer list={api} />
+            <Footer list={menuItems} />
         </>
     );
 }
