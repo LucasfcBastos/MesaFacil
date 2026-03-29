@@ -16,11 +16,7 @@ Route::post('/register_authentic', [UserController::class, 'register']);
 Route::post('/login_authentic', [UserController::class, 'login']);
 Route::post('/register/{id}', [RestaurantController::class, 'create']);
 
-Route::middleware('auth:sanctum')->group(function () {
-    Route::prefix('restaurant')->group(function() {
-        Route::post('/myProfile', [UserController::class, 'myRestaurant']);
-    });
-    
+Route::middleware('auth:sanctum')->group(function () {    
     Route::get('/exibir/{id}', [RestaurantController::class, 'view']);
     Route::put('/atualizar/{id}', [RestaurantController::class, 'update']);
 

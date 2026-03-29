@@ -132,7 +132,6 @@ function UserMy() {
                     </div>
                     <Button text={"Editar"} link="/editar/restaurante" />
                 </div>
-
             </div>
             <Footer list={menuItems} />
         </>

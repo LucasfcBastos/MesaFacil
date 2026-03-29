@@ -5,27 +5,25 @@ import icon_user from "../../assets/svg/user.svg?react"
 import icon_mesa from "../../assets/svg/mesa.svg?react"
 import icon_reserva from "../../assets/svg/reserva.svg?react"
 
-import '../../styles/homepage.css'
-
 function UserFilter() {
 
     const menuItems = [
         {
             name: "Buscar",
-            link: "/restaurante/mesas",
-            type: "",
+            link: "/client/list/restaurates",
+            type: "select",
             img: icon_mesa
         },
         {
             name: "Rerservas",
-            link: "/restaurante/reservas",
+            link: "/client/list/reservas",
             type: "",
             img: icon_reserva
         },
         {
             name: "Perfil",
-            link: "/restaurante/perfil",
-            type: "select",
+            link: "/client/my",
+            type: "",
             img: icon_user
         }
     ]

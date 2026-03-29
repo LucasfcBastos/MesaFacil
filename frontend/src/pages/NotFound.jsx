@@ -1,7 +1,7 @@
 import Button from "../components/btn/BtnNavigate";
 import NavBar from "../components/nav"
 
-import '../styles/homepage.css'
+import "../styles/pages/homepage.css"
 
 function NotFound() {
     return (

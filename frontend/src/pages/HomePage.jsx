@@ -2,7 +2,7 @@ import Button from "../components/btn/BtnNavigate";
 import NavBar from "../components/nav"
 import Footer from "../components/footer_notAuth"
 
-import '../styles/homepage.css'
+import "../styles/pages/homepage.css"
 
 function HomePage() {
     return (
