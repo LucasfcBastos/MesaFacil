@@ -5,6 +5,8 @@ composer install
 
 composer require laravel/sanctum
 
+composer require intervention/image
+
 php artisan vendor:publish --provider="Laravel\Sanctum\SanctumServiceProvider"
 
 php artisan migrate:fresh --seed

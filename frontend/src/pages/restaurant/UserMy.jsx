@@ -113,9 +113,9 @@ function UserMy() {
                 </div>
                 <hr/>
                 <div className="data_user">
-                    {restaurant.logo_url ? (
+                    {restaurant.logo ? (
                         <div className="logo_card">
-                            <img src={restaurant.logo_url} alt="Logo do Restaurante" className="img-user" />
+                            <img src={restaurant.logo} alt="Logo do Restaurante" className="img-user" />
                         </div>
                     ) : (
                         <div className="logo_card">

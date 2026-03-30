@@ -6,7 +6,7 @@ function footer_notAuth({ list }) {
         <>
             <footer id="auth">
                 {list && list.map((item) => (
-                    <Button text={item.name} link={item.link} style={item.type} img={item.img} />
+                    <Button key={item.link} text={item.name} link={item.link} style={item.type} img={item.img} />
                 ))}
             </footer>
         </>

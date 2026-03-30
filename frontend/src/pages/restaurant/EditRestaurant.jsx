@@ -18,6 +18,24 @@ function EditRestaurant() {
     const [price, setPrice] = useState("")
 
     const [cuisines, setCuisines] = useState([])
+    const [restaurant, setRestaurant] = useState(null)
+
+    useEffect(() => {
+        const loadRestaurant = async () => {
+            const response = await api.get(`/exibir/${user.id}`)
+            const data = response.data
+
+            setRestaurant(data)
+
+            // 🔥 PREENCHE OS INPUTS
+            setName(data.restaurant_name || "")
+            setDescription(data.description || "")
+            setPrice(data.price || "")
+            setCuisineId(data.id_cuisine || "")
+        }
+
+        loadRestaurant()
+    }, [])
 
     useEffect(() => {
         const loadCuisines = async () => {
@@ -35,18 +53,27 @@ function EditRestaurant() {
         e.preventDefault()
 
         try {
+            const formData = new FormData();
 
-            await api.put(`/atualizar/${user.id}`,{
-                logo,
-                restaurant_name,
-                description,
-                id_cuisine,
-                price
-            })
+            formData.append("_method", "PUT");
 
-            alert("Atualização realizada com sucesso!")
+            if (logo) {
+                formData.append("logo", logo);
+            }
 
-            navigate("/restaurante/perfil")
+            formData.append("restaurant_name", restaurant_name);
+            formData.append("description", description);
+            formData.append("price", price);
+            formData.append("id_cuisine", id_cuisine);
+
+            await api.post(`/atualizar/${user.id}`, formData, {
+                headers: {
+                    "Content-Type": "multipart/form-data"
+                }
+            });
+
+            alert("Atualização realizada com sucesso!");
+            navigate("/restaurante/perfil");
             
         } catch (err) {
             console.error(err);
@@ -97,20 +124,20 @@ function EditRestaurant() {
                         <div className="label_input">
                             <label>
                                 Nome do Restaurante
-                                <input type="text" placeholder="Digite o nome do restaurante" onChange={e=>setName(e.target.value)} />
+                                <input type="text" value={restaurant_name} placeholder="Digite o nome do restaurante" onChange={e=>setName(e.target.value)} />
                             </label>
                         </div>
                         <div className="label_input">
                             <label>
                                 Descrição
-                                <textarea placeholder="Digite a descrição do restaurante" onChange={e=>setDescription(e.target.value)} />
+                                <textarea value={description} placeholder="Digite a descrição do restaurante" onChange={e=>setDescription(e.target.value)} />
                             </label>
                         </div>
                         <div className="label_input">
                             <label>
                                 Qual seu tipo de refeição?
-                                <select value={id_cuisine} onChange={e=>setCuisineId(e.target.value)}>
-                                    <option value="null">Selecione um tipo de refeição</option>
+                                <select value={id_cuisine || ""} onChange={e=>setCuisineId(e.target.value)}>
+                                    <option value="">Selecione um tipo de refeição</option>
 
                                     {cuisines.map((cuisine) => (
                                         <option key={cuisine.id} value={cuisine.id}>
@@ -123,7 +150,7 @@ function EditRestaurant() {
                         <div className="label_input">
                             <label>
                                 Preço da reserva
-                                <input type="text" placeholder="Digite o preço da reserva" onChange={e=>setPrice(e.target.value)} />
+                                <input value={price} type="text" placeholder="Digite o preço da reserva" onChange={e=>setPrice(e.target.value)} />
                             </label>
                         </div>
                         <div className="btn">
