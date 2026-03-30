@@ -10,6 +10,8 @@ class Restaurant extends Model
         'logo',
         'restaurant_name',
         'description',
+        'price',
         'id_user',
+        'id_cuisine',
     ];
 }

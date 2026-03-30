@@ -51,3 +51,20 @@ form .label_input textarea {
     margin: 0em;
     width: calc(100% - 1.1em);
 }
+
+form .label_input .img input {
+    display: none;
+}
+
+form .label_input .img_camp {
+    display: flex;
+    justify-content: center;
+}
+
+form .label_input .preview_logo {
+    width: 10em;
+    height: 10em;
+    border: 0.1em dashed var(--ThemeVine);
+    padding: 1em;
+    border-radius: 100%;
+}

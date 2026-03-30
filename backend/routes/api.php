@@ -6,7 +6,8 @@ use App\Http\Controllers\{
     ProfileController,
     CitiesController,
     UserController,
-    RestaurantController
+    RestaurantController,
+    CuisineController
 };
 
 Route::get('/states', [StateController::class, 'index']);
@@ -20,6 +21,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/exibir/{id}', [RestaurantController::class, 'view']);
     Route::put('/atualizar/{id}', [RestaurantController::class, 'update']);
 
+    Route::get('/cuisines', [CuisineController::class, 'index']);
+
     Route::get('where/states/{id}', [StateController::class, 'whereStates']);
     Route::get('where/cities/{id}', [CitiesController::class, 'whereCities']);
+    Route::get('where/cuisine/{id}', [CuisineController::class, 'whereCuisines']);
 });

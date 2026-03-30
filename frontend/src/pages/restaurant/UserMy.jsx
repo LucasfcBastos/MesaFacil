@@ -18,6 +18,7 @@ function UserMy() {
     const [restaurant, setRestaurant] = useState([])
     const [city, setCity] = useState([])
     const [state, setState] = useState([])
+    const [cuisine, setCuisine] = useState([])
 
     const menuItems = [
         {
@@ -71,6 +72,21 @@ function UserMy() {
     }, [])
 
     useEffect(() => {
+        const loadCuisine = async () => {
+            if (restaurant?.id_cuisine) {
+                try {
+                    const response = await api.get(`/where/cuisine/${restaurant.id_cuisine}`)
+                    setCuisine(response.data)
+                } catch (error) {
+                    console.error("Erro ao buscar estado:", error)
+                }
+            }
+        }
+
+        loadCuisine()     
+    }, [restaurant])
+    
+    useEffect(() => {
         const loadState = async () => {
             if (city?.id_state) {
                 try {
@@ -109,13 +125,25 @@ function UserMy() {
                     <div className="label_input">
                         <label>
                             Nome do Restaurante
-                            <input type="text" value={restaurant?.restaurant_name || "NULL"} disabled />
+                            <input type="text" value={restaurant?.restaurant_name} disabled />
                         </label>
                     </div>
                     <div className="label_input">
                         <label>
                             Descrição
                             <textarea type="text" value={restaurant?.description || "NULL"} disabled />
+                        </label>
+                    </div>
+                    <div className="label_input">
+                        <label>
+                            Tipo de refeição
+                            <input type="text" value={cuisine?.name || "NULL"} disabled />
+                        </label>
+                    </div>
+                    <div className="label_input">
+                        <label>
+                            Preço da refeição
+                            <input type="text" value={restaurant?.price || "NULL"} disabled />
                         </label>
                     </div>
                     <div className="label_input">

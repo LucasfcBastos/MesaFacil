@@ -16,10 +16,13 @@ return new class extends Migration
             $table->string('logo')->nullable();
             $table->string('restaurant_name')->nullable();
             $table->mediumText('description')->nullable();
+            $table->decimal('price', 10, 2)->nullable();
             $table->unsignedBigInteger('id_user');
+            $table->unsignedBigInteger('id_cuisine')->nullable();
             $table->timestamps();
 
             $table->foreign('id_user')->references('id')->on('users');
+            $table->foreign('id_cuisine')->references('id')->on('cuisines');
         });
     }
 

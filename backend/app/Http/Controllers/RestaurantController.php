@@ -16,7 +16,9 @@ class RestaurantController extends Controller
             'logo' => null,
             'restaurant_name' => null,
             'description' => null,
-            'id_user' => $user_id
+            'price' => null,
+            'id_user' => $user_id,
+            'id_cuisine' => null
         ]);
 
         return response()->json([
@@ -37,18 +39,24 @@ class RestaurantController extends Controller
         }
 
         return response()->json([
-            'restaurant' => $restaurant
+            'logo' => $restaurant->logo,
+            'restaurant_name' => $restaurant->restaurant_name,
+            'description' => $restaurant->description,
+            'price' => $restaurant->price,
+            'id_cuisine' => $restaurant->id_cuisine
         ], 200);
     }
 
     public function update(Request $request, $id)
     {
-        $restaurant = Restaurant::find($id);
+        $restaurant = Restaurant::where('id_user', $id)->first();
     
         $request->validate([
             'logo' => 'nullable|image|mimes:png,jpg,jpeg|max:2048',
             'restaurant_name' => 'nullable|string|max:255',
-            'description' => 'nullable|string'
+            'description' => 'nullable|string',
+            'price' => 'nullable|numeric',
+            'id_cuisine' => 'nullable|exists:cuisines,id',
         ]);
 
         // 🔥 Se tiver imagem nova
@@ -78,6 +86,8 @@ class RestaurantController extends Controller
         // Atualiza outros campos
         $restaurant->restaurant_name = $request->restaurant_name ?? $restaurant->restaurant_name;
         $restaurant->description = $request->description ?? $restaurant->description;
+        $restaurant->price = $request->price ?? $restaurant->price;
+        $restaurant->id_cuisine = $request->id_cuisine ?? $restaurant->id_cuisine;
 
         $restaurant->save();
 
