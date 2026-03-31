@@ -28,6 +28,21 @@ class RestaurantController extends Controller
 
     }
 
+    public function viewList()
+    {
+        $restaurant = Restaurant::all();
+
+        if (!$restaurant) {
+            return response()->json([
+                'message' => 'Restaurante não encontrado'
+            ], 404);
+        }
+
+        return response()->json([
+            'restaurant' => $restaurant
+        ], 200);
+    }
+
     public function view($id)
     {
         $restaurant = Restaurant::where('id_user', $id)->first();

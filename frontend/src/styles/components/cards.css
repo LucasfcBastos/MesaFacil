@@ -1,0 +1,46 @@
+.btn_card {
+    padding: 0.5em;
+    background-color: var(--ThemeColor);
+    border-radius: var(--px12);
+    width: 100%;
+    box-shadow: 0em 0.3em 0.4em rgb(127, 127, 127);
+    border: 0em;
+}
+
+.btn_card .card_start {
+    width: 100%;
+    height: 9em;
+    background-color: var(--ThemeVine);
+    border-radius: var(--px6);
+    margin-bottom: 1em;
+}
+
+.btn_card .card_center {
+    display: flex;
+}
+
+.btn_card .card_center .camp_img {
+    max-height: 100%;
+    align-content: center;
+    padding-right: 0.5em;
+}
+
+.btn_card .card_center svg,
+.btn_card .card_center img {
+    width: 4em;
+    height: 4em;
+    margin: 0em;
+}
+
+.btn_card .card_center .text {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    text-align: left;
+    justify-content: space-between;
+    gap: 0.5em;
+}
+
+.btn_card .card_center .text .name {
+    font-size: 1.25em;
+}

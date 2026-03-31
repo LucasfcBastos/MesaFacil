@@ -66,4 +66,11 @@ class UserController extends Controller
 
     }
 
+    public function whereUser($user_id)
+    {
+        $user = User::find($user_id);
+
+        return response()->json($user);
+    }
+
 }

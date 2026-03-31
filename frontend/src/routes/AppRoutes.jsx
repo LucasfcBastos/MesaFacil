@@ -28,7 +28,7 @@ export function AppRoutes() {
         element={<ProtectedRoute profile={1}>
           <UserConsumerMy />
         </ProtectedRoute>}/>
-        <Route path="/client/list/restaurates"
+        <Route path="/client/search"
         element={<ProtectedRoute profile={1}>
           <UserConsumerFilter />
         </ProtectedRoute>}/>

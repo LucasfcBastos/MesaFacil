@@ -20,7 +20,7 @@ function UserMy() {
     const menuItems = [
         {
             name: "Buscar",
-            link: "/client/list/restaurates",
+            link: "/client/search",
             type: "",
             img: icon_mesa
         },
